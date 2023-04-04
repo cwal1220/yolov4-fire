@@ -27,7 +27,7 @@ with open(classes_file, "r") as f:
 image_path = "samples/test3.jpg"
 
 
-for i in range(1000):
+for i in range(1):
 
 
     # 이미지 로드
