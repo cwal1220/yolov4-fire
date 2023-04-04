@@ -1,0 +1,9 @@
+classes= 13
+train  = /home/B190101/fire/fire/train.txt
+valid  = /home/B190101/fire/fire/val.txt
+#valid = data/coco_val_5k.list
+names = /home/B190101/fire/fire/fire.names
+backup = /home/B190101/darknet/backup
+#eval=coco
+
+
