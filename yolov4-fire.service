@@ -1,7 +1,6 @@
 [Unit]
 Description=Yolov4 Fire Detection Service
-After=graphical.target
-After=network-online.target
+After=multi-user.target
 
 [Service]
 Environment="DISPLAY=:0.0"
