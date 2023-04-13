@@ -119,7 +119,7 @@ while True:
         pass
 
     # 결과 이미지 출력
-    frame = cv2.resize(frame, (1024, 600))
+    frame = cv2.resize(frame, (800, 480))
     cv2.imshow("YOLOv4-Fire", frame)
     if cv2.waitKey(1) == ord("q"):
         break

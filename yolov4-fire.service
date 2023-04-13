@@ -1,0 +1,14 @@
+[Unit]
+Description=Yolov4 Fire Detection Service
+After=graphical.target
+After=network-online.target
+
+[Service]
+Environment="DISPLAY=:0.0"
+User=pi
+WorkingDirectory=/home/pi/yolov4-fire
+ExecStart=/usr/bin/python3 yolov4-fire-video.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
