@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+# import DeviceManager
 
 # YOLOv4 모델과 가중치 파일 경로
 model_path = "yolov4-fire_final.weights"
@@ -33,6 +34,9 @@ cap = cv2.VideoCapture(0)
 
 # frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 # frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+cv2.namedWindow("YOLOv4-Fire", cv2.WINDOW_NORMAL)
+cv2.setWindowProperty("YOLOv4-Fire", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
 
 while True:
@@ -85,6 +89,7 @@ while True:
 
     fireAreaClor = (0, 0, 255)
     if len(indexes) >= 1:
+        # DeviceManager.fanStart()
         print(indexes)
         for i in indexes.flatten():
             x, y, w, h = boxes[i]
@@ -109,9 +114,12 @@ while True:
 
             text = f"{classes[class_ids[i]]}: {confidences[i]:.2f}"
             cv2.putText(frame, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+    else:
+        # DeviceManager.fanStop()
+        pass
 
-    # cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
     # 결과 이미지 출력
+    frame = cv2.resize(frame, (1024, 600))
     cv2.imshow("YOLOv4-Fire", frame)
     if cv2.waitKey(1) == ord("q"):
         break
